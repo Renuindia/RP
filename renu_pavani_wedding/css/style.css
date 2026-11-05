@@ -215,3 +215,64 @@
         height: 48px;
     }
 }
+
+.entrance-instruction {
+    text-align: center;
+    color: #79551f;
+    margin-top: 35px;
+    z-index: 12;
+}
+
+.entrance-instruction h2 {
+    margin: 12px 0;
+}
+
+.music-popup {
+    position: absolute;
+    z-index: 20;
+    top: 15px;
+    right: 15px;
+    background: #fff9e8;
+    border: 2px solid #c49a35;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    color: #513619;
+}
+
+.music-popup button,
+.open-button {
+    padding: 12px 20px;
+    background: #bd963b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.skip-button {
+    background: #79551f !important;
+}
+
+.page-two {
+    min-height: 100vh;
+    background: #fff4d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.page-two-content img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 20px;
+}
+
+.page-two-content h2 {
+    color: #70451c;
+    margin: 12px;
+}
