@@ -5,25 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renu & Pavani Wedding</title>
-
-    <!-- Connect CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
 
+    <!-- ENTRANCE PAGE -->
     <section class="entrance" id="entrance">
-
         <div class="entrance-content">
 
-            <!-- Ganesha above the doors -->
             <div class="ganesha-arch">
                 <img src="./assets/ganesha.png" alt="Lord Ganesha">
             </div>
 
-            <!-- Double wooden doors -->
             <div class="door-frame">
-
                 <div class="door left-door">
                     <div class="door-carving top-carving"></div>
                     <div class="door-carving middle-carving"></div>
@@ -39,33 +33,145 @@
                     <div class="door-handle"></div>
                     <div class="door-hinges"></div>
                 </div>
-
             </div>
 
             <p class="ganesha-mantra">॥ श्री गणेशाय नमः ॥</p>
-
             <h1>Welcome to Our Wedding</h1>
-
-            <p class="entrance-instruction">
-                Scroll or Tap to Open
-            </p>
+            <p class="entrance-instruction">Open the doors to celebrate our special day</p>
 
             <button class="open-door-btn" onclick="openWeddingDoors()">
                 Open Invitation
             </button>
-
         </div>
     </section>
 
-    <!-- Wedding invitation page -->
-    <section id="page2" class="page-two">
-        <h1>॥ श्री गणेशाय नमः ॥</h1>
-        <h2>Renu Prasad Reddy & Pavani Reddy</h2>
-        <p>Wedding Invitation</p>
+
+    <!-- PAGE 1: WEDDING INVITATION AND COUNTDOWN -->
+    <section id="page2" class="content-page invitation-page">
+
+        <p class="section-mantra">॥ श्री गणेशाय नमः ॥</p>
+        <p class="eyebrow">WITH THE BLESSINGS OF OUR FAMILIES</p>
+
+        <h1>Wedding Invitation</h1>
+
+        <p class="invitation-intro">
+            With immense joy and happiness, we invite you to celebrate
+            the beginning of our beautiful journey together.
+        </p>
+
+        <div class="couple-names">
+            <h2>Renu Prasad Reddy</h2>
+            <span>&</span>
+            <h2>Pavani Reddy</h2>
+        </div>
+
+        <p class="invitation-message">
+            Your presence and blessings will make our special occasion
+            even more memorable.
+        </p>
+
+        <div class="countdown-area">
+            <p class="eyebrow">COUNTDOWN TO OUR WEDDING</p>
+
+            <div class="countdown">
+                <div class="count-box">
+                    <strong id="days">00</strong>
+                    <span>Days</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="hours">00</strong>
+                    <span>Hours</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="minutes">00</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="seconds">00</strong>
+                    <span>Seconds</span>
+                </div>
+            </div>
+
+            <p class="wedding-date">
+                26 November 2026 | 5:30 AM
+            </p>
+        </div>
+
+        <p class="scroll-hint">Scroll down to view the venue ↓</p>
     </section>
 
-    <!-- Connect JavaScript -->
-    <script src="./js/script.js"></script>
 
+    <!-- PAGE 2: VENUE AND WEDDING DETAILS -->
+    <section id="venue" class="content-page venue-page">
+
+        <p class="eyebrow">WE WOULD LOVE TO CELEBRATE WITH YOU</p>
+        <h1>Wedding Celebrations</h1>
+
+        <div class="event-detail">
+            <h2>Reception</h2>
+            <p class="event-date">25 November 2026</p>
+        </div>
+
+        <div class="event-detail">
+            <h2>Muhurtham</h2>
+            <p class="event-date">26 November 2026</p>
+            <p>4:30 AM – 5:30 AM</p>
+        </div>
+
+        <div class="venue-card">
+            <div class="venue-icon">✦</div>
+            <h2>Venue</h2>
+            <h3>ACJ Grand Palace</h3>
+            <p>Sirugurajupalem, Puttur</p>
+
+            <a
+                class="map-button"
+                href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x3a4d50a2ffffffff:0x7f4f1a3595eb9087?entry=s&sa=X&ved=2ahUKEwj2xdX69u2XAxVRd2wGHT28EnoQ4kB6BAgXEAA&hl=en"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Location on Google Maps
+            </a>
+        </div>
+
+        <p class="scroll-hint">One more special page awaits you ↓</p>
+    </section>
+
+
+    <!-- PAGE 3: COUPLE PHOTO AND HEARTFELT MESSAGE -->
+    <section id="couple" class="content-page couple-page">
+
+        <p class="eyebrow">A NEW JOURNEY BEGINS</p>
+        <h1>Renu & Pavani</h1>
+
+        <div class="couple-photo-frame">
+            <img
+                src="./assets/couple-photo.jpg"
+                alt="Bride and groom"
+            >
+        </div>
+
+        <h2>With Love & Happiness</h2>
+
+        <p class="heartfelt-message">
+            Two hearts, one beautiful journey, and a lifetime of memories
+            waiting to be created.
+
+            We are looking forward to celebrating this special day with
+            you. Your presence, love and blessings mean the world to us.
+        </p>
+
+        <div class="final-wishes">
+            With love,<br>
+            <strong>Renu & Pavani</strong>
+        </div>
+
+        <p class="closing-line">We can't wait to celebrate with you!</p>
+
+    </section>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
