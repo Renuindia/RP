@@ -1,278 +1,151 @@
-
-* {
-    box-sizing: border-box;
-}
-
-.entrance {
-    min-height: 100vh;
-    width: 100%;
-    background: linear-gradient(135deg, #f8e8b5, #fff3cf, #e9ca7c);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    perspective: 1600px;
-    padding: 30px 15px;
-}
+/* REALISTIC TRADITIONAL WOODEN DOUBLE DOORS */
 
 .door-frame {
-    position: relative;
-    width: min(90vw, 850px);
-    height: min(65vh, 570px);
-    min-height: 350px;
-    display: flex;
-    border: 12px solid #a77b25;
-    border-radius: 12px;
-    background: #4c2914;
+    perspective: 1600px;
+    background: linear-gradient(
+        90deg,
+        #5a321b,
+        #a66b2e,
+        #5a321b
+    );
+    border: 12px solid #b88732;
     box-shadow:
-        0 15px 35px rgba(65, 35, 10, .45),
-        inset 0 0 15px #f7d77a;
-    transform-style: preserve-3d;
+        0 18px 35px rgba(55, 30, 10, 0.45),
+        inset 0 0 15px rgba(0, 0, 0, 0.7);
 }
-
-/* Wooden door panels */
 
 .door {
-    position: relative;
+    position: absolute;
+    top: 0;
     width: 50%;
     height: 100%;
-    background:
-        linear-gradient(90deg,
-            #573019,
-            #99602d 20%,
-            #75421f 50%,
-            #a46b36 80%,
-            #573019);
-    border: 5px solid #d5aa49;
-    box-shadow:
-        inset 0 0 18px rgba(0,0,0,.55),
-        inset 0 0 5px #ffe28a;
-    transform-style: preserve-3d;
-    transition: transform 2.5s cubic-bezier(.65,0,.25,1);
     overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 2.5s cubic-bezier(.22,.75,.25,1);
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(45, 20, 8, 0.25) 0px,
+            rgba(45, 20, 8, 0.05) 5px,
+            rgba(190, 120, 55, 0.15) 12px,
+            rgba(65, 30, 12, 0.2) 20px
+        ),
+        linear-gradient(
+            90deg,
+            #542b16,
+            #985a2d 25%,
+            #7b421f 65%,
+            #4a2412
+        );
+
+    border: 5px solid #d1a448;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.7),
+        inset 5px 0 8px rgba(255,220,140,.2),
+        5px 5px 15px rgba(0,0,0,.4);
+
+    backface-visibility: visible;
 }
 
-/* Door frame and wooden borders */
-
 .left-door {
+    left: 0;
     transform-origin: left center;
-    border-radius: 5px 0 0 5px;
 }
 
 .right-door {
+    right: 0;
     transform-origin: right center;
-    border-radius: 0 5px 5px 0;
 }
 
-/* Raised wooden panels */
-
-.wood-panel,
-.lower-panel {
+/* Raised carved upper wooden panel */
+.wood-panel {
     position: absolute;
+    top: 9%;
     left: 10%;
     width: 80%;
-    height: 43%;
-    border: 4px solid #d5ac4f;
-    border-radius: 7px;
+    height: 39%;
+
+    border: 7px solid #b78336;
+    border-radius: 10px;
+
     background:
-        linear-gradient(145deg, #9b622e, #75401e, #98602d);
+        repeating-linear-gradient(
+            90deg,
+            #673519 0px,
+            #8b4e26 8px,
+            #713b1d 16px,
+            #a06434 24px
+        );
+
     box-shadow:
-        inset 0 0 12px rgba(0,0,0,.4),
-        0 0 5px #f4d36d;
+        inset 0 0 0 3px #4a2615,
+        inset 0 0 18px rgba(0,0,0,.65),
+        0 0 5px #e0b85c,
+        3px 5px 8px rgba(0,0,0,.45);
 }
 
-.wood-panel {
-    top: 9%;
-}
-
+/* Raised carved lower wooden panel */
 .lower-panel {
-    bottom: 9%;
+    position: absolute;
+    top: 52%;
+    left: 10%;
+    width: 80%;
+    height: 39%;
+
+    border: 7px solid #b78336;
+    border-radius: 10px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #673519 0px,
+            #8b4e26 8px,
+            #713b1d 16px,
+            #a06434 24px
+        );
+
+    box-shadow:
+        inset 0 0 0 3px #4a2615,
+        inset 0 0 18px rgba(0,0,0,.65),
+        0 0 5px #e0b85c,
+        3px 5px 8px rgba(0,0,0,.45);
 }
 
-/* Golden door handles */
-
+/* Traditional brass handles */
 .door-handle {
     position: absolute;
-    top: 48%;
-    width: 18px;
-    height: 65px;
-    border-radius: 12px;
+    top: 47%;
+    width: 23px;
+    height: 75px;
+    border-radius: 15px;
+
     background: linear-gradient(
         90deg,
-        #9e701e,
-        #fff0a0,
-        #c99b35
+        #9b681d,
+        #ffe68b,
+        #b17a20,
+        #fff0a8
     );
-    box-shadow: 0 0 10px rgba(255,220,100,.7);
-    z-index: 3;
+
+    box-shadow:
+        2px 3px 8px rgba(0,0,0,.6),
+        inset 2px 0 4px rgba(255,255,255,.6);
 }
 
 .left-door .door-handle {
-    right: 12px;
+    right: 5%;
 }
 
 .right-door .door-handle {
-    left: 12px;
+    left: 5%;
 }
 
-/* Central golden border */
-
-.door-frame::after {
-    content: "";
-    position: absolute;
-    width: 8px;
-    height: 100%;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    background: linear-gradient(
-        90deg,
-        #93651d,
-        #ffdf79,
-        #a77a24
-    );
-    z-index: 5;
-    pointer-events: none;
-}
-
-/* Ganesha decoration */
-
-.ganesha-frame {
-    position: absolute;
-    z-index: 10;
-    top: -145px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 125px;
-    height: 125px;
-    border: 7px double #c49a35;
-    border-radius: 50%;
-    background: #fff8e5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 20px #d9b85f;
-    overflow: hidden;
-}
-
-.ganesha-frame img {
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
-}
-
-/* Open doors */
-
+/* Realistic door opening */
 .entrance.open .left-door {
-    transform: rotateY(-110deg);
+    transform: rotateY(-115deg);
 }
 
 .entrance.open .right-door {
-    transform: rotateY(110deg);
-}
-
-/* Invitation text */
-
-.entrance p {
-    color: #96732d;
-    letter-spacing: 5px;
-    font-style: italic;
-    text-align: center;
-}
-
-.entrance button {
-    background: #bd963b;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-@media(max-width:600px) {
-    .door-frame {
-        width: 94vw;
-        height: 55vh;
-        min-height: 320px;
-        border-width: 7px;
-    }
-
-    .ganesha-frame {
-        width: 95px;
-        height: 95px;
-        top: -110px;
-    }
-
-    .wood-panel,
-    .lower-panel {
-        border-width: 3px;
-    }
-
-    .door-handle {
-        width: 13px;
-        height: 48px;
-    }
-}
-
-.entrance-instruction {
-    text-align: center;
-    color: #79551f;
-    margin-top: 35px;
-    z-index: 12;
-}
-
-.entrance-instruction h2 {
-    margin: 12px 0;
-}
-
-.music-popup {
-    position: absolute;
-    z-index: 20;
-    top: 15px;
-    right: 15px;
-    background: #fff9e8;
-    border: 2px solid #c49a35;
-    border-radius: 15px;
-    padding: 18px;
-    text-align: center;
-    color: #513619;
-}
-
-.music-popup button,
-.open-button {
-    padding: 12px 20px;
-    background: #bd963b;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.skip-button {
-    background: #79551f !important;
-}
-
-.page-two {
-    min-height: 100vh;
-    background: #fff4d8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-}
-
-.page-two-content img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin: 20px;
-}
-
-.page-two-content h2 {
-    color: #70451c;
-    margin: 12px;
+    transform: rotateY(115deg);
 }
