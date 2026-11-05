@@ -1,19 +1,44 @@
-/* Main entrance background */
+
+/* =========================================
+   RENU & PAVANI WEDDING - ENTRANCE DESIGN
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff2ce;
+    overflow-x: hidden;
+}
+
+/* Main entrance */
+
 .entrance {
-    min-height: 100vh;
     width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 25px 15px 35px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #fff9e9 0%,
+            #f9e9bd 65%,
+            #e8cc8e 100%
+        );
+
     overflow: hidden;
-    background: radial-gradient(
-        circle at center,
-        #fff8df 0%,
-        #f7e4b0 65%,
-        #e9c77e 100%
-    );
-    padding: 30px 15px;
-    box-sizing: border-box;
 }
 
 .entrance-content {
@@ -21,134 +46,219 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-/* Ganesha decorative arch above doors */
+/* =========================================
+   GANESHA DECORATIVE ARCH
+   ========================================= */
+
 .ganesha-arch {
     width: 190px;
     height: 145px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     position: relative;
     z-index: 5;
-    margin-bottom: -8px;
-    border: 6px double #b88732;
-    border-radius: 100px 100px 0 0;
-    background: linear-gradient(145deg, #fff8df, #e9c77e);
-    box-shadow: 0 5px 20px rgba(70, 35, 10, .25);
+
+    margin-bottom: -5px;
+
+    border: 7px double #b88732;
+    border-bottom: 4px solid #b88732;
+
+    border-radius: 110px 110px 0 0;
+
+    background:
+        radial-gradient(circle, #fff8df, #e9c77e);
+
+    box-shadow:
+        0 5px 15px rgba(65, 35, 10, .25),
+        inset 0 0 15px rgba(255,255,255,.7);
 }
 
 .ganesha-arch img {
-    width: 110px;
-    height: 110px;
+    display: block;
+    width: 115px;
+    height: 115px;
     object-fit: contain;
 }
 
-/* Tall and narrow double-door entrance */
+/* =========================================
+   DOOR FRAME
+   ========================================= */
+
 .door-frame {
     position: relative;
-    width: min(76vw, 680px);
+
+    width: min(76vw, 620px);
     height: min(68vh, 650px);
-    min-height: 420px;
+
+    min-height: 440px;
+
     display: flex;
-    perspective: 1800px;
+    flex-direction: row;
+
     border: 12px solid #a87525;
-    border-radius: 8px;
+    border-radius: 5px;
+
     background: #482512;
+
+    perspective: 1800px;
+    perspective-origin: center center;
+
     box-shadow:
-        0 20px 35px rgba(55, 30, 10, .4),
-        inset 0 0 0 5px #e4bd62;
+        0 22px 40px rgba(55, 30, 10, .42),
+        inset 0 0 0 5px #e4bd62,
+        inset 0 0 18px #301509;
 }
 
-/* Individual wooden doors */
+/* =========================================
+   INDIVIDUAL DOOR PANELS
+   ========================================= */
+
 .door {
     position: relative;
+
     width: 50%;
     height: 100%;
-    box-sizing: border-box;
+
+    flex: 0 0 50%;
+
     overflow: hidden;
+
     transform-style: preserve-3d;
-    transition: transform 2.5s cubic-bezier(.2,.7,.2,1);
+
+    transition:
+        transform 2.6s cubic-bezier(.22,.75,.25,1);
 
     background:
         repeating-linear-gradient(
             90deg,
-            rgba(40, 15, 5, .18) 0px,
-            transparent 5px,
-            rgba(255, 190, 100, .12) 12px,
-            transparent 22px
+            rgba(40, 15, 5, .22) 0px,
+            rgba(40, 15, 5, .05) 4px,
+            rgba(210, 145, 75, .15) 9px,
+            rgba(55, 25, 10, .15) 16px
         ),
         linear-gradient(
             90deg,
-            #4b2412,
-            #92562d 45%,
-            #673619
+            #45200f,
+            #85502b 35%,
+            #985d32 60%,
+            #522711
         );
 
-    box-shadow: inset 0 0 25px rgba(0,0,0,.65);
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.7),
+        inset 4px 0 8px rgba(255,220,140,.15);
 }
 
 .left-door {
     transform-origin: left center;
-    border-right: 3px solid #d6ad51;
+    border-right: 3px solid #d5ad53;
 }
 
 .right-door {
     transform-origin: right center;
-    border-left: 3px solid #d6ad51;
+    border-left: 3px solid #d5ad53;
 }
 
-/* Traditional raised wooden carvings */
-.door-carving {
+/* Vertical wooden grain */
+
+.door::before {
+    content: "";
     position: absolute;
-    left: 12%;
-    width: 76%;
-    border: 6px solid #bd8b39;
-    border-radius: 8px;
+    inset: 0;
 
     background:
         repeating-linear-gradient(
             90deg,
-            #603018,
-            #92542b 10px,
-            #704020 20px
+            transparent 0px,
+            rgba(30, 12, 5, .16) 2px,
+            transparent 5px,
+            rgba(255, 205, 130, .08) 12px,
+            transparent 20px
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   RAISED WOODEN CARVINGS
+   ========================================= */
+
+.door-carving {
+    position: absolute;
+
+    left: 11%;
+    width: 78%;
+
+    border: 6px solid #bd8b39;
+    border-radius: 7px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #603018 0px,
+            #8b5129 9px,
+            #713c1d 18px,
+            #9a6136 26px
         );
 
     box-shadow:
-        inset 0 0 12px rgba(0,0,0,.65),
-        0 0 5px #e6c16b;
+        inset 0 0 0 3px #4b2613,
+        inset 0 0 15px rgba(0,0,0,.7),
+        0 0 5px #e6c16b,
+        2px 4px 8px rgba(0,0,0,.4);
 }
 
+/* Three tall decorative sections */
+
 .top-carving {
-    top: 8%;
+    top: 6%;
     height: 25%;
 }
 
 .middle-carving {
-    top: 38%;
-    height: 23%;
+    top: 36%;
+    height: 28%;
 }
 
 .bottom-carving {
-    bottom: 8%;
+    bottom: 6%;
     height: 25%;
 }
 
-/* Brass handles near the middle */
+/* =========================================
+   BRASS DOOR HANDLES
+   ========================================= */
+
 .door-handle {
     position: absolute;
+
     top: 48%;
-    width: 18px;
+
+    width: 19px;
     height: 65px;
+
     border-radius: 12px;
-    background: linear-gradient(
-        90deg,
-        #9b681d,
-        #ffe68b,
-        #b17a20
-    );
-    box-shadow: 2px 3px 7px rgba(0,0,0,.6);
+
+    background:
+        linear-gradient(
+            90deg,
+            #8c5b16,
+            #e9c45d,
+            #fff0a0,
+            #a16c1b
+        );
+
+    box-shadow:
+        2px 3px 8px rgba(0,0,0,.6),
+        inset 2px 0 4px rgba(255,255,255,.7);
+
+    z-index: 3;
 }
 
 .left-door .door-handle {
@@ -159,14 +269,29 @@
     left: 5%;
 }
 
-/* Door hinges */
+/* =========================================
+   BRASS HINGES
+   ========================================= */
+
 .door-hinges {
     position: absolute;
+
     top: 12%;
+
     width: 12px;
     height: 75%;
+
     border-radius: 5px;
-    background: linear-gradient(90deg, #8d601d, #e8c56d);
+
+    background:
+        linear-gradient(
+            90deg,
+            #80521a,
+            #f1d17a,
+            #a16d20
+        );
+
+    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
 }
 
 .left-door .door-hinges {
@@ -177,50 +302,119 @@
     right: 2%;
 }
 
-/* Opening animation */
+/* =========================================
+   OPENING ANIMATION
+   ========================================= */
+
 .entrance.open .left-door {
-    transform: rotateY(-110deg);
+    transform: rotateY(-115deg);
 }
 
 .entrance.open .right-door {
-    transform: rotateY(110deg);
+    transform: rotateY(115deg);
 }
 
-/* Text */
+/* =========================================
+   TEXT BELOW THE DOORS
+   ========================================= */
+
 .ganesha-mantra {
+    margin-top: 20px;
+    margin-bottom: 8px;
+
     color: #96651e;
     font-size: 22px;
-    margin: 18px 0 5px;
+    text-align: center;
 }
 
 .entrance-content h1 {
+    margin: 12px 0;
+
     color: #552c17;
+
     font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 34px);
+
     text-align: center;
 }
 
 .entrance-instruction {
+    margin: 12px 0 20px;
+
     color: #96651e;
-    letter-spacing: 5px;
+
+    font-size: 16px;
+    letter-spacing: 4px;
     font-style: italic;
+
+    text-align: center;
 }
+
+/* Open invitation button */
 
 .open-door-btn {
-    padding: 13px 32px;
-    border: 1px solid #b88732;
+    padding: 13px 34px;
+
+    border: 2px solid #b88732;
     border-radius: 30px;
-    background: linear-gradient(135deg, #8b541f, #c79a43);
+
+    background:
+        linear-gradient(135deg, #80501f, #c79a43);
+
     color: white;
+
     font-size: 16px;
+    font-family: Georgia, serif;
+
     cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(60,30,10,.25);
+
+    transition: .3s;
 }
 
-/* Mobile screen */
+.open-door-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #a16b2c, #d6ad58);
+}
+
+/* =========================================
+   SECOND PAGE
+   ========================================= */
+
+.page-two {
+    min-height: 100vh;
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7df,
+            #f4dfad
+        );
+
+    color: #582d18;
+}
+
+.page-two h1 {
+    margin-bottom: 30px;
+}
+
+.page-two h2 {
+    margin: 20px 0;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
 @media (max-width: 600px) {
-    .door-frame {
-        width: 88vw;
-        height: 62vh;
-        min-height: 390px;
+
+    .entrance {
+        padding: 20px 10px 30px;
     }
 
     .ganesha-arch {
@@ -231,6 +425,16 @@
     .ganesha-arch img {
         width: 90px;
         height: 90px;
+    }
+
+    .door-frame {
+        width: 88vw;
+        height: 62vh;
+        height: 62svh;
+
+        min-height: 390px;
+
+        border-width: 8px;
     }
 
     .door-carving {
@@ -244,11 +448,39 @@
         height: 48px;
     }
 
+    .door-hinges {
+        width: 8px;
+    }
+
+    .ganesha-mantra {
+        font-size: 19px;
+    }
+
     .entrance-content h1 {
         font-size: 24px;
     }
 
     .entrance-instruction {
+        font-size: 13px;
         letter-spacing: 2px;
+    }
+}
+
+/* Short screens */
+
+@media (max-height: 650px) and (min-width: 601px) {
+    .door-frame {
+        height: 65vh;
+        min-height: 360px;
+    }
+
+    .ganesha-arch {
+        height: 105px;
+        width: 150px;
+    }
+
+    .ganesha-arch img {
+        width: 85px;
+        height: 85px;
     }
 }
