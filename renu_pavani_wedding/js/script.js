@@ -7,13 +7,15 @@ function openWeddingDoors() {
 
     doorsOpened = true;
 
-    document.getElementById("entrance")
-        .classList.add("open");
+    const entrance = document.getElementById("entrance");
 
-    // Wait until the doors open
+    if (entrance) {
+        entrance.classList.add("open");
+    }
+
+    // Wait until doors finish opening
     setTimeout(() => {
 
-        // Show your second page here
         const page2 = document.getElementById("page2");
 
         if (page2) {
@@ -22,14 +24,16 @@ function openWeddingDoors() {
             });
         }
 
-    }, 2000);
+    }, 2500);
+
 }
 
-// Open doors when visitor scrolls
-window.addEventListener("wheel", function(e) {
 
-    if (!doorsOpened && e.deltaY > 0) {
+// Automatically open doors when visitor scrolls
+window.addEventListener("scroll", function () {
+
+    if (!doorsOpened && window.scrollY > 50) {
         openWeddingDoors();
     }
 
-}, { passive: true });
+});
