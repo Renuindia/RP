@@ -1,56 +1,159 @@
 
-<section class="entrance" id="entrance">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="entrance-light"></div>
+<head>
+    <meta charset="UTF-8">
 
-    <div class="door-frame">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-        <!-- Ganesha above entrance -->
-        <div class="ganesha-frame">
-            <img src="assets/ganesha.png"
+    <title>Renu & Pavani Wedding Invitation</title>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ================================= -->
+    <!-- PAGE 1 : WEDDING ENTRANCE         -->
+    <!-- ================================= -->
+
+    <section class="entrance" id="entrance">
+
+        <div class="entrance-light"></div>
+
+        <!-- DOOR FRAME -->
+
+        <div class="door-frame">
+
+            <!-- GANESHA ABOVE DOORS -->
+
+            <div class="ganesha-frame">
+
+                <img src="./assets/ganesha.png"
+                     alt="Lord Ganesha">
+
+            </div>
+
+
+            <!-- LEFT WOODEN DOOR -->
+
+            <div class="door left-door">
+
+                <div class="wood-panel"></div>
+
+                <div class="lower-panel"></div>
+
+                <div class="door-handle"></div>
+
+            </div>
+
+
+            <!-- RIGHT WOODEN DOOR -->
+
+            <div class="door right-door">
+
+                <div class="wood-panel"></div>
+
+                <div class="lower-panel"></div>
+
+                <div class="door-handle"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENTRANCE INSTRUCTION -->
+
+        <div class="entrance-instruction">
+
+            <p>॥ श्री गणेशाय नमः ॥</p>
+
+            <h2>Welcome to Our Wedding</h2>
+
+            <p>Scroll or Tap to Open</p>
+
+        </div>
+
+
+        <!-- MUSIC POPUP -->
+
+        <div class="music-popup" id="musicPopup">
+
+            <div class="music-icon">♫</div>
+
+            <h3>Wedding Celebration</h3>
+
+            <p>Would you like to play music?</p>
+
+            <button onclick="playWeddingMusic()">
+                ▶ Play Music
+            </button>
+
+            <button class="skip-button"
+                    onclick="skipWeddingMusic()">
+                Skip
+            </button>
+
+        </div>
+
+
+        <!-- OPEN INVITATION BUTTON -->
+
+        <button class="open-button"
+                onclick="openWeddingDoors()">
+
+            Open Invitation
+
+        </button>
+
+
+        <!-- BACKGROUND MUSIC -->
+
+        <audio id="weddingMusic" loop>
+
+            <source src="./assets/wedding-music.mp3"
+                    type="audio/mpeg">
+
+        </audio>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- PAGE 2 : TEMPORARY TEST PAGE      -->
+    <!-- ================================= -->
+
+    <section id="page2" class="page-two">
+
+        <div class="page-two-content">
+
+            <h1>॥ श्री गणेशाय नमः ॥</h1>
+
+            <img src="./assets/ganesha.png"
                  alt="Lord Ganesha">
-        </div>
 
-        <!-- LEFT WOODEN DOOR -->
-        <div class="door left-door">
+            <h2>Renu Prasad Reddy</h2>
 
-            <div class="wood-panel"></div>
-            <div class="lower-panel"></div>
+            <h2>&</h2>
 
-            <div class="door-handle"></div>
+            <h2>Pavani Reddy</h2>
 
-        </div>
-
-        <!-- RIGHT WOODEN DOOR -->
-        <div class="door right-door">
-
-            <div class="wood-panel"></div>
-            <div class="lower-panel"></div>
-
-            <div class="door-handle"></div>
+            <p>Wedding Invitation</p>
 
         </div>
 
-    </div>
+    </section>
 
-    <p style="
-        color:#96732d;
-        letter-spacing:5px;
-        margin-top:40px;
-        font-style:italic;
-        text-align:center;">
-        Scroll or Tap to Open
-    </p>
 
-    <button onclick="openWeddingDoors()"
-        style="
-        background:#bd963b;
-        color:white;
-        border:none;
-        padding:15px 30px;
-        border-radius:30px;
-        cursor:pointer;">
-        Open Invitation
-    </button>
+    <!-- JAVASCRIPT FILE -->
 
-</section>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
