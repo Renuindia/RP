@@ -484,3 +484,270 @@ body {
         height: 85px;
     }
 }
+
+/* ===== WEDDING CONTENT PAGES ===== */
+
+.content-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 75px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #49301f;
+    background:
+        radial-gradient(circle at top, #fffdf5, transparent 65%),
+        #f7edda;
+    position: relative;
+}
+
+.content-page h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #70421f;
+    margin: 12px 0 22px;
+}
+
+.eyebrow {
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #9a713d;
+}
+
+.section-mantra {
+    color: #9a6426;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.invitation-intro,
+.invitation-message {
+    max-width: 650px;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.couple-names {
+    margin: 30px 0;
+}
+
+.couple-names h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(27px, 5vw, 43px);
+    color: #713f20;
+    margin: 8px 0;
+}
+
+.couple-names span {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: #b18a4e;
+    margin: 8px;
+}
+
+.countdown-area {
+    margin-top: 35px;
+    width: min(100%, 650px);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.count-box {
+    background: #754923;
+    color: #fff5df;
+    border: 2px solid #c7a46a;
+    border-radius: 10px;
+    width: 105px;
+    padding: 18px 8px;
+    box-sizing: border-box;
+}
+
+.count-box strong {
+    display: block;
+    font-size: 32px;
+    font-family: Georgia, serif;
+}
+
+.count-box span {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.wedding-date {
+    font-weight: bold;
+    color: #70421f;
+    font-size: 18px;
+}
+
+.scroll-hint {
+    margin-top: 45px;
+    color: #997345;
+    font-size: 14px;
+}
+
+/* VENUE PAGE */
+
+.venue-page {
+    background:
+        radial-gradient(circle at center, #fffaf0, transparent 70%),
+        #ead9b9;
+}
+
+.event-detail {
+    width: min(100%, 450px);
+    padding: 18px;
+    margin: 12px 0;
+    border-bottom: 1px solid #c6a16a;
+}
+
+.event-detail h2 {
+    color: #754923;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.event-date {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.venue-card {
+    width: min(100%, 500px);
+    margin-top: 25px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 1px solid #b58c52;
+    border-radius: 16px;
+    background: rgba(255, 252, 241, 0.8);
+    box-shadow: 0 8px 25px rgba(85, 52, 20, 0.12);
+}
+
+.venue-icon {
+    font-size: 30px;
+    color: #a87936;
+}
+
+.venue-card h2 {
+    font-family: Georgia, serif;
+    color: #9a713d;
+}
+
+.venue-card h3 {
+    font-family: Georgia, serif;
+    color: #70421f;
+    font-size: 25px;
+}
+
+.venue-card p {
+    font-size: 17px;
+}
+
+.map-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 22px;
+    border-radius: 30px;
+    background: #754923;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* COUPLE PHOTO PAGE */
+
+.couple-page {
+    background:
+        radial-gradient(circle at top, #fffdf6, transparent 70%),
+        #f0dfc2;
+}
+
+.couple-photo-frame {
+    width: min(85vw, 420px);
+    padding: 10px;
+    border: 3px solid #b58c52;
+    border-radius: 18px;
+    background: #fff9ec;
+    box-shadow: 0 12px 35px rgba(70, 42, 18, 0.2);
+    box-sizing: border-box;
+    margin: 15px 0 25px;
+}
+
+.couple-photo-frame img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+}
+
+.couple-page h2 {
+    color: #754923;
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.heartfelt-message {
+    max-width: 620px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #65452e;
+    white-space: pre-line;
+}
+
+.final-wishes {
+    margin-top: 25px;
+    line-height: 1.8;
+    color: #8b6030;
+}
+
+.final-wishes strong {
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.closing-line {
+    margin-top: 25px;
+    font-style: italic;
+    color: #9a713d;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+    .content-page {
+        padding: 55px 16px;
+    }
+
+    .countdown {
+        gap: 7px;
+    }
+
+    .count-box {
+        width: 75px;
+        padding: 13px 5px;
+    }
+
+    .count-box strong {
+        font-size: 25px;
+    }
+
+    .invitation-intro,
+    .invitation-message,
+    .heartfelt-message {
+        font-size: 16px;
+    }
+}
