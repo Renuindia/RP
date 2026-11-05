@@ -1,45 +1,71 @@
-<section class="entrance" id="entrance">
 
-    <div class="entrance-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renu & Pavani Wedding</title>
 
-        <!-- Ganesha above the doors -->
-        <div class="ganesha-arch">
-            <img src="./assets/ganesha.png" alt="Lord Ganesha">
-        </div>
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
 
-        <!-- Tall double wooden doors -->
-        <div class="door-frame">
+<body>
 
-            <div class="door left-door">
-                <div class="door-carving top-carving"></div>
-                <div class="door-carving middle-carving"></div>
-                <div class="door-carving bottom-carving"></div>
-                <div class="door-handle"></div>
-                <div class="door-hinges"></div>
+    <section class="entrance" id="entrance">
+
+        <div class="entrance-content">
+
+            <!-- Ganesha above the doors -->
+            <div class="ganesha-arch">
+                <img src="./assets/ganesha.png" alt="Lord Ganesha">
             </div>
 
-            <div class="door right-door">
-                <div class="door-carving top-carving"></div>
-                <div class="door-carving middle-carving"></div>
-                <div class="door-carving bottom-carving"></div>
-                <div class="door-handle"></div>
-                <div class="door-hinges"></div>
+            <!-- Double wooden doors -->
+            <div class="door-frame">
+
+                <div class="door left-door">
+                    <div class="door-carving top-carving"></div>
+                    <div class="door-carving middle-carving"></div>
+                    <div class="door-carving bottom-carving"></div>
+                    <div class="door-handle"></div>
+                    <div class="door-hinges"></div>
+                </div>
+
+                <div class="door right-door">
+                    <div class="door-carving top-carving"></div>
+                    <div class="door-carving middle-carving"></div>
+                    <div class="door-carving bottom-carving"></div>
+                    <div class="door-handle"></div>
+                    <div class="door-hinges"></div>
+                </div>
+
             </div>
 
+            <p class="ganesha-mantra">॥ श्री गणेशाय नमः ॥</p>
+
+            <h1>Welcome to Our Wedding</h1>
+
+            <p class="entrance-instruction">
+                Scroll or Tap to Open
+            </p>
+
+            <button class="open-door-btn" onclick="openWeddingDoors()">
+                Open Invitation
+            </button>
+
         </div>
+    </section>
 
-        <p class="ganesha-mantra">॥ श्री गणेशाय नमः ॥</p>
+    <!-- Wedding invitation page -->
+    <section id="page2" class="page-two">
+        <h1>॥ श्री गणेशाय नमः ॥</h1>
+        <h2>Renu Prasad Reddy & Pavani Reddy</h2>
+        <p>Wedding Invitation</p>
+    </section>
 
-        <h1>Welcome to Our Wedding</h1>
+    <!-- Connect JavaScript -->
+    <script src="./js/script.js"></script>
 
-        <p class="entrance-instruction">
-            Scroll or Tap to Open
-        </p>
-
-        <button class="open-door-btn" onclick="openWeddingDoors()">
-            Open Invitation
-        </button>
-
-    </div>
-
-</section>
+</body>
+</html>
