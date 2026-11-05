@@ -1,447 +1,56 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renu & Pavani Wedding</title>
+<section class="entrance" id="entrance">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <div class="entrance-light"></div>
 
-body {
-    background: #f5dfa6;
-    font-family: Georgia, serif;
-    overflow-x: hidden;
-}
-
-#entrance {
-    width: 100%;
-    height: 100svh;
-    min-height: 600px;
-    position: relative;
-    overflow: hidden;
-    perspective: 1600px;
-    background:
-        radial-gradient(circle, #fff5ce, #edcf87);
-}
-
-/* BACKGROUND */
-
-.wall {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at center 30%,
-        #fff5d4 0%, #f6e2ac 65%, #e9c879 100%);
-}
-
-/* GANESHA */
-
-.ganesha {
-    position: absolute;
-    top: 9%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 145px;
-    height: 145px;
-    border-radius: 50%;
-    border: 9px double #c7a13d;
-    background: #fff9e7;
-    box-shadow: 0 0 25px #c39b3c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.ganesha img {
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
-}
-
-/* DOOR FRAME */
-
-.door-frame {
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    top: 27%;
-    bottom: 10%;
-    display: flex;
-    border: 9px solid #b58a32;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px #76501b;
-    transform-style: preserve-3d;
-}
-
-/* INSIDE REVEALED WHEN DOORS OPEN */
-
-.inside {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle, #fff9df, #f0dba5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.inside img {
-    width: min(55%, 260px);
-    filter: drop-shadow(0 5px 15px #b38b37);
-}
-
-/* DOOR PANELS */
-
-.door {
-    width: 50%;
-    height: 100%;
-    position: relative;
-    background:
-        linear-gradient(90deg,
-        #684018,
-        #a16b2d 15%,
-        #80501f 50%,
-        #a06b31 85%,
-        #603817);
-    border: 5px solid #d0aa4f;
-    box-shadow: inset 0 0 20px #48280d;
-    transform-style: preserve-3d;
-    transition: transform 2.2s cubic-bezier(.65,0,.25,1);
-    z-index: 5;
-}
-
-.left-door {
-    transform-origin: left center;
-    border-radius: 8px 0 0 8px;
-}
-
-.right-door {
-    transform-origin: right center;
-    border-radius: 0 8px 8px 0;
-}
-
-/* DOOR DECORATION */
-
-.door::before {
-    content: "";
-    position: absolute;
-    inset: 5%;
-    border: 3px solid #d4b04f;
-    border-radius: 8px;
-    box-shadow:
-        inset 0 0 10px #d5a84b,
-        0 0 5px #d5a84b;
-}
-
-.door::after {
-    content: "";
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    right: 10%;
-    height: 45%;
-    border: 3px solid #d6b45e;
-    border-radius: 5px;
-    box-shadow: 0 0 8px #d6b45e;
-}
-
-/* GOLD HANDLES */
-
-.handle {
-    position: absolute;
-    top: 55%;
-    width: 17px;
-    height: 65px;
-    border-radius: 12px;
-    background: linear-gradient(
-        90deg, #987020, #ffe68a, #b68b2f
-    );
-    box-shadow: 0 0 8px #e9c75f;
-    z-index: 8;
-}
-
-.left-door .handle {
-    right: 12px;
-}
-
-.right-door .handle {
-    left: 12px;
-}
-
-/* FLOWER GARLAND */
-
-.garland-top {
-    position: absolute;
-    top: -10px;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    z-index: 10;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 10% 30%, #ff9b00 0 12px, transparent 13px),
-        radial-gradient(circle at 30% 30%, #ffae00 0 11px, transparent 12px),
-        radial-gradient(circle at 50% 30%, #ff9800 0 17px, transparent 18px),
-        radial-gradient(circle at 70% 30%, #ffae00 0 11px, transparent 12px),
-        radial-gradient(circle at 90% 30%, #ff9800 0 15px, transparent 16px);
-    border-top: 13px solid #34732c;
-}
-
-.side-flowers {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 35px;
-    z-index: 10;
-    background:
-        repeating-linear-gradient(
-        to bottom,
-        #398331 0px,
-        #398331 13px,
-        #f89a09 14px,
-        #f89a09 28px,
-        #f4bd22 29px,
-        #f4bd22 35px
-    );
-    border-radius: 20px;
-    pointer-events: none;
-}
-
-.side-flowers.left {
-    left: 5px;
-}
-
-.side-flowers.right {
-    right: 5px;
-}
-
-/* MUSIC POPUP */
-
-.music-popup {
-    position: absolute;
-    z-index: 20;
-    bottom: 12%;
-    right: 5%;
-    background: #fff9e9;
-    padding: 17px;
-    border: 2px solid #d2b45c;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 5px 20px #8c682c55;
-}
-
-.music-popup p {
-    margin: 8px 0;
-    color: #382a18;
-}
-
-.music-popup button,
-.open-button {
-    background: #c5a341;
-    color: white;
-    border: 0;
-    padding: 11px 18px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.music-popup .skip {
-    background: white;
-    color: #876a28;
-    border: 1px solid #c5a341;
-}
-
-/* OPEN INSTRUCTION */
-
-.instruction {
-    position: absolute;
-    bottom: 3%;
-    width: 100%;
-    text-align: center;
-    color: #a58a4d;
-    letter-spacing: 5px;
-    font-style: italic;
-    z-index: 15;
-}
-
-/* OPEN BUTTON */
-
-.open-button {
-    position: absolute;
-    bottom: 3%;
-    right: 5%;
-    z-index: 25;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    padding: 0;
-    font-size: 22px;
-    box-shadow: 0 0 15px #b68d36;
-}
-
-/* OPEN ANIMATION */
-
-#entrance.open .left-door {
-    transform: rotateY(-110deg);
-}
-
-#entrance.open .right-door {
-    transform: rotateY(110deg);
-}
-
-#entrance.open .music-popup {
-    display: none;
-}
-
-@media(max-width: 500px) {
-    .door-frame {
-        left: 4%;
-        right: 4%;
-    }
-
-    .ganesha {
-        width: 125px;
-        height: 125px;
-    }
-
-    .music-popup {
-        bottom: 12%;
-        padding: 12px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<section id="entrance">
-
-    <div class="wall"></div>
-
-    <!-- GANESHA ABOVE DOORS -->
-    <div class="ganesha">
-        <img src="assets/ganesha.png" alt="Lord Ganesha">
-    </div>
-
-    <!-- DOOR FRAME -->
     <div class="door-frame">
 
-        <!-- CONTENT BEHIND DOORS -->
-        <div class="inside">
-            <img src="assets/ganesha.png" alt="Lord Ganesha">
+        <!-- Ganesha above entrance -->
+        <div class="ganesha-frame">
+            <img src="assets/ganesha.png"
+                 alt="Lord Ganesha">
         </div>
 
-        <!-- LEFT DOOR -->
+        <!-- LEFT WOODEN DOOR -->
         <div class="door left-door">
-            <div class="handle"></div>
+
+            <div class="wood-panel"></div>
+            <div class="lower-panel"></div>
+
+            <div class="door-handle"></div>
+
         </div>
 
-        <!-- RIGHT DOOR -->
+        <!-- RIGHT WOODEN DOOR -->
         <div class="door right-door">
-            <div class="handle"></div>
+
+            <div class="wood-panel"></div>
+            <div class="lower-panel"></div>
+
+            <div class="door-handle"></div>
+
         </div>
 
-        <!-- FLOWER DECORATION -->
-        <div class="garland-top"></div>
-        <div class="side-flowers left"></div>
-        <div class="side-flowers right"></div>
-
     </div>
 
-    <!-- MUSIC POPUP -->
-    <div class="music-popup" id="musicPopup">
-        <div style="font-size:25px;color:#c5a341;">♫</div>
-        <p>Play background music?</p>
-
-        <button onclick="playMusic()">▶ Play</button>
-        <button class="skip" onclick="skipMusic()">Skip</button>
-    </div>
-
-    <!-- OPEN INSTRUCTION -->
-    <div class="instruction">
+    <p style="
+        color:#96732d;
+        letter-spacing:5px;
+        margin-top:40px;
+        font-style:italic;
+        text-align:center;">
         Scroll or Tap to Open
-    </div>
+    </p>
 
-    <button class="open-button" onclick="openDoors()">▶</button>
-
-    <!-- MUSIC FILE -->
-    <audio id="weddingMusic" loop>
-        <source src="assets/wedding-music.mp3" type="audio/mpeg">
-    </audio>
+    <button onclick="openWeddingDoors()"
+        style="
+        background:#bd963b;
+        color:white;
+        border:none;
+        padding:15px 30px;
+        border-radius:30px;
+        cursor:pointer;">
+        Open Invitation
+    </button>
 
 </section>
-
-<script>
-
-let doorsOpened = false;
-
-const entrance = document.getElementById("entrance");
-const music = document.getElementById("weddingMusic");
-
-function openDoors() {
-
-    if (doorsOpened) return;
-
-    doorsOpened = true;
-
-    entrance.classList.add("open");
-
-    document.getElementById("musicPopup").style.display = "none";
-
-}
-
-// PLAY MUSIC
-
-function playMusic() {
-
-    music.play().catch(error => {
-        console.log("Music could not play:", error);
-    });
-
-    openDoors();
-}
-
-// SKIP MUSIC
-
-function skipMusic() {
-
-    music.pause();
-
-    openDoors();
-}
-
-// TAP ANYWHERE TO OPEN
-
-entrance.addEventListener("click", function(event) {
-
-    if (
-        event.target.tagName === "BUTTON"
-    ) return;
-
-    openDoors();
-
-});
-
-// SCROLL TO OPEN
-
-window.addEventListener("wheel", function() {
-    openDoors();
-}, { once: true });
-
-window.addEventListener("touchmove", function() {
-    openDoors();
-}, { once: true });
-
-</script>
-
-</body>
-</html>
