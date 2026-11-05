@@ -1,39 +1,37 @@
 
-/* ===== NATURAL WEDDING ENTRANCE ===== */
+* {
+    box-sizing: border-box;
+}
 
 .entrance {
     min-height: 100vh;
     width: 100%;
-    background:
-        radial-gradient(ellipse at center, #fff5d5 0%, #e8c879 100%);
+    background: linear-gradient(135deg, #f8e8b5, #fff3cf, #e9ca7c);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     perspective: 1600px;
-    position: relative;
     padding: 30px 15px;
 }
 
-/* Traditional entrance frame */
-
 .door-frame {
     position: relative;
-    width: min(88vw, 1050px);
-    height: min(72vh, 680px);
-    min-height: 420px;
+    width: min(90vw, 850px);
+    height: min(65vh, 570px);
+    min-height: 350px;
     display: flex;
-    border: 12px solid #a87929;
-    border-radius: 9px;
-    background: #4b2914;
+    border: 12px solid #a77b25;
+    border-radius: 12px;
+    background: #4c2914;
     box-shadow:
-        0 18px 35px rgba(52, 27, 8, .45),
-        inset 0 0 18px #d6ae57;
+        0 15px 35px rgba(65, 35, 10, .45),
+        inset 0 0 15px #f7d77a;
     transform-style: preserve-3d;
 }
 
-/* Individual door panels */
+/* Wooden door panels */
 
 .door {
     position: relative;
@@ -41,135 +39,101 @@
     height: 100%;
     background:
         linear-gradient(90deg,
-            rgba(35, 15, 5, .35),
-            transparent 15%,
-            rgba(255, 210, 135, .10) 48%,
-            transparent 75%,
-            rgba(30, 12, 4, .30)),
-        repeating-linear-gradient(
-            90deg,
-            rgba(45, 20, 8, .13) 0px,
-            rgba(45, 20, 8, .13) 2px,
-            transparent 3px,
-            transparent 13px
-        ),
-        linear-gradient(
-            90deg,
-            #603719,
-            #986039 25%,
-            #77431f 55%,
-            #a16a3c 78%,
-            #573017
-        );
-
-    border: 3px solid #d2a94c;
+            #573019,
+            #99602d 20%,
+            #75421f 50%,
+            #a46b36 80%,
+            #573019);
+    border: 5px solid #d5aa49;
     box-shadow:
-        inset 0 0 25px rgba(0,0,0,.5),
-        inset 0 0 7px #e9c76e;
-
+        inset 0 0 18px rgba(0,0,0,.55),
+        inset 0 0 5px #ffe28a;
     transform-style: preserve-3d;
-    transition: transform 2.2s cubic-bezier(.65,0,.25,1);
+    transition: transform 2.5s cubic-bezier(.65,0,.25,1);
     overflow: hidden;
 }
 
-/* Left and right hinge positioning */
+/* Door frame and wooden borders */
 
 .left-door {
     transform-origin: left center;
-    border-right: 5px solid #d7ad51;
+    border-radius: 5px 0 0 5px;
 }
 
 .right-door {
     transform-origin: right center;
-    border-left: 5px solid #d7ad51;
+    border-radius: 0 5px 5px 0;
 }
 
-/* Raised traditional wooden panels */
+/* Raised wooden panels */
 
-.wood-panel {
-    position: absolute;
-    left: 10%;
-    right: 10%;
-    top: 12%;
-    height: 55%;
-    border: 5px ridge #c59a48;
-    border-radius: 5px;
-    background:
-        linear-gradient(120deg,
-            rgba(255,255,255,.10),
-            transparent 35%,
-            rgba(0,0,0,.17)),
-        linear-gradient(90deg, #75421e, #a16b3c, #71401e);
-    box-shadow:
-        inset 0 0 15px rgba(0,0,0,.45),
-        0 0 7px rgba(235,190,95,.4);
-}
-
+.wood-panel,
 .lower-panel {
     position: absolute;
     left: 10%;
-    right: 10%;
-    bottom: 7%;
-    height: 20%;
-    border: 4px ridge #bd9344;
-    border-radius: 5px;
-    background: linear-gradient(120deg,#70401f,#986039,#673719);
-    box-shadow: inset 0 0 12px rgba(0,0,0,.4);
+    width: 80%;
+    height: 43%;
+    border: 4px solid #d5ac4f;
+    border-radius: 7px;
+    background:
+        linear-gradient(145deg, #9b622e, #75401e, #98602d);
+    box-shadow:
+        inset 0 0 12px rgba(0,0,0,.4),
+        0 0 5px #f4d36d;
+}
+
+.wood-panel {
+    top: 9%;
+}
+
+.lower-panel {
+    bottom: 9%;
 }
 
 /* Golden door handles */
 
 .door-handle {
     position: absolute;
-    top: 46%;
-    width: 17px;
-    height: 75px;
+    top: 48%;
+    width: 18px;
+    height: 65px;
     border-radius: 12px;
     background: linear-gradient(
         90deg,
-        #8d641e,
-        #ffe89a,
-        #c89c36,
-        #fff0ae
+        #9e701e,
+        #fff0a0,
+        #c99b35
     );
-    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(255,220,100,.7);
+    z-index: 3;
 }
 
 .left-door .door-handle {
-    right: 9%;
+    right: 12px;
 }
 
 .right-door .door-handle {
-    left: 9%;
+    left: 12px;
 }
 
-/* Door opening animation */
+/* Central golden border */
 
-.entrance.open .left-door {
-    transform: rotateY(105deg);
-}
-
-.entrance.open .right-door {
-    transform: rotateY(-105deg);
-}
-
-/* Entrance background */
-
-.entrance-light {
+.door-frame::after {
+    content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(255,255,255,.9),
-        transparent 65%
+    width: 8px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        90deg,
+        #93651d,
+        #ffdf79,
+        #a77a24
     );
-    opacity: 0;
+    z-index: 5;
     pointer-events: none;
-    transition: opacity 2s ease;
-}
-
-.entrance.open .entrance-light {
-    opacity: 1;
 }
 
 /* Ganesha decoration */
@@ -177,47 +141,77 @@
 .ganesha-frame {
     position: absolute;
     z-index: 10;
-    top: -125px;
+    top: -145px;
     left: 50%;
     transform: translateX(-50%);
-    width: 155px;
-    height: 155px;
-    border: 8px double #c49a35;
+    width: 125px;
+    height: 125px;
+    border: 7px double #c49a35;
     border-radius: 50%;
-    background: #fff8e8;
-    padding: 9px;
-    box-shadow: 0 5px 20px rgba(80,45,10,.35);
+    background: #fff8e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px #d9b85f;
+    overflow: hidden;
 }
 
 .ganesha-frame img {
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 85%;
     object-fit: contain;
-    border-radius: 50%;
 }
 
-/* Mobile responsive */
+/* Open doors */
+
+.entrance.open .left-door {
+    transform: rotateY(-110deg);
+}
+
+.entrance.open .right-door {
+    transform: rotateY(110deg);
+}
+
+/* Invitation text */
+
+.entrance p {
+    color: #96732d;
+    letter-spacing: 5px;
+    font-style: italic;
+    text-align: center;
+}
+
+.entrance button {
+    background: #bd963b;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
 @media(max-width:600px) {
     .door-frame {
         width: 94vw;
-        height: 65vh;
-        min-height: 400px;
+        height: 55vh;
+        min-height: 320px;
         border-width: 7px;
     }
 
     .ganesha-frame {
-        width: 115px;
-        height: 115px;
-        top: -95px;
+        width: 95px;
+        height: 95px;
+        top: -110px;
     }
 
-    .wood-panel {
+    .wood-panel,
+    .lower-panel {
         border-width: 3px;
     }
 
     .door-handle {
-        width: 12px;
-        height: 55px;
+        width: 13px;
+        height: 48px;
     }
 }
