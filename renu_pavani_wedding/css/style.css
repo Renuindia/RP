@@ -1,3 +1,4 @@
+
 /* ==========================================
    RENU & PAVANI WEDDING INVITATION
    COMPLETE RESPONSIVE DESIGN
@@ -10,9 +11,8 @@
   --gold-light: #f5dfa9;
   --cream: #fff8e9;
   --text: #513522;
+  --rose: #8b4b48;
 }
-
-/* GLOBAL RESET */
 
 * {
   box-sizing: border-box;
@@ -40,13 +40,14 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+
 /* ==========================================
    PAGE 1 - GRAND ENTRANCE
 ========================================== */
 
 .entrance {
   min-height: 100svh;
-  padding: 26px 14px 32px;
+  padding: 25px 14px 30px;
 
   display: flex;
   align-items: center;
@@ -78,6 +79,7 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
 
 /* GANESHA ARCH */
 
@@ -115,7 +117,6 @@ a {
 }
 
 .ganesha-fallback {
-  display: none;
   color: #855522;
   font-size: 16px;
 }
@@ -129,14 +130,21 @@ a {
 .entrance h1 {
   color: #70421f;
   font-size: clamp(22px, 4vw, 34px);
-  margin: 4px 0 7px;
+  margin: 5px 0 7px;
 }
 
 .entrance-instruction {
   color: #89633a;
-  margin-bottom: 17px;
+  margin: 8px 0 17px;
   font-size: 14px;
 }
+
+.eyebrow {
+  font: bold 10px Arial, sans-serif;
+  letter-spacing: 2.5px;
+  color: #9a713d;
+}
+
 
 /* ==========================================
    WOODEN DOOR FRAME
@@ -164,6 +172,7 @@ a {
 
   overflow: visible;
 }
+
 
 /* ==========================================
    COUNTDOWN INSIDE DOORS
@@ -224,6 +233,7 @@ a {
   margin: 9px 0 16px;
 }
 
+
 /* COUNTDOWN BOXES */
 
 .inside-countdown {
@@ -283,6 +293,7 @@ a {
   font-style: italic;
   margin-top: 13px;
 }
+
 
 /* ==========================================
    WOODEN DOORS
@@ -346,6 +357,7 @@ a {
   border-left: 3px solid #e6bd69;
 }
 
+
 /* WOOD GRAIN */
 
 .door::before {
@@ -365,6 +377,7 @@ a {
 
   pointer-events: none;
 }
+
 
 /* CARVED WOODEN PANELS */
 
@@ -405,6 +418,7 @@ a {
   height: 25%;
 }
 
+
 /* DOOR HANDLES */
 
 .door-handle {
@@ -434,6 +448,7 @@ a {
   left: 5%;
 }
 
+
 /* DOOR HINGES */
 
 .door-hinges {
@@ -460,6 +475,7 @@ a {
   right: 1%;
 }
 
+
 /* ==========================================
    DOOR OPENING ANIMATION
 ========================================== */
@@ -473,6 +489,7 @@ a {
   transform: rotateY(112deg);
   box-shadow: 0 0 20px #0003;
 }
+
 
 /* OPEN BUTTON */
 
@@ -510,12 +527,14 @@ a {
   cursor: default;
 }
 
-.door-scroll-hint {
+.door-scroll-hint,
+.music-note {
   color: #8b6235;
   font: 12px Arial, sans-serif;
-  margin-top: 13px;
-  letter-spacing: .5px;
+  margin-top: 12px;
+  letter-spacing: .3px;
 }
+
 
 /* ==========================================
    COMMON CONTENT PAGE STYLES
@@ -544,17 +563,12 @@ a {
   margin: 12px 0 22px;
 }
 
-.eyebrow {
-  font: bold 10px Arial, sans-serif;
-  letter-spacing: 2.5px;
-  color: #9a713d;
-}
-
 .ornament {
   color: #b18a4e;
   font-size: 36px;
   margin-bottom: 10px;
 }
+
 
 /* ==========================================
    PAGE 2 - INVITATION
@@ -573,7 +587,16 @@ a {
 .section-mantra {
   color: #9a6426;
   font-size: 22px;
-  margin-bottom: 8px;
+  margin: 8px 0;
+}
+
+.krish-image {
+  display: block;
+  width: min(44vw, 190px);
+  height: 155px;
+  object-fit: contain;
+  margin: 10px auto 0;
+  filter: drop-shadow(0 7px 9px #68411b24);
 }
 
 .invitation-intro,
@@ -584,7 +607,7 @@ a {
 }
 
 .couple-names {
-  margin: 26px 0;
+  margin: 23px 0;
 }
 
 .couple-names h2 {
@@ -598,6 +621,44 @@ a {
   color: #b18a4e;
   font-size: 30px;
   margin: 6px;
+}
+
+
+/* EVENT HIGHLIGHTS */
+
+.event-highlight {
+  width: min(100%, 460px);
+  padding: 16px 18px;
+  margin: 7px 0;
+
+  border: 1px solid #d2b276;
+  border-radius: 14px;
+
+  background: #fffaf0c9;
+
+  box-shadow: 0 5px 16px #55341410;
+}
+
+.event-label {
+  color: #9a713d;
+  font: bold 11px Arial, sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.event-highlight h2 {
+  color: #754923;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.event-highlight p:last-child {
+  line-height: 1.6;
+}
+
+.muhurtham-highlight {
+  border-color: #b98a58;
+  background: #f8edda;
 }
 
 .gold-divider {
@@ -623,11 +684,12 @@ a {
   font-size: 23px;
 }
 
+
 /* PAGE NAVIGATION LINKS */
 
 .next-link,
 .back-to-top {
-  margin-top: 38px;
+  margin-top: 30px;
   color: #81572e;
   text-decoration: none;
   font: 13px Arial, sans-serif;
@@ -637,6 +699,7 @@ a {
 .back-to-top:hover {
   text-decoration: underline;
 }
+
 
 /* ==========================================
    PAGE 3 - VENUE
@@ -660,13 +723,6 @@ a {
   border-bottom: 1px solid #c6a16a;
 }
 
-.event-label {
-  color: #9a713d;
-  font: bold 11px Arial, sans-serif;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
 .event-detail h2 {
   color: #754923;
   font-size: 28px;
@@ -676,6 +732,7 @@ a {
 .event-date {
   font-size: 16px;
 }
+
 
 /* VENUE CARD */
 
@@ -725,8 +782,9 @@ a {
   background: #a36b34;
 }
 
+
 /* ==========================================
-   PAGE 4 - GANESHA BLESSINGS
+   PAGE 4 - FINAL INVITATION
 ========================================== */
 
 .blessings-page {
@@ -752,29 +810,30 @@ a {
   box-shadow: 0 12px 35px #462a1226;
 }
 
-/* GANESHA IMAGE */
 
-.final-ganesha {
+/* COUPLE IMAGE */
+
+.final-couple-image {
   display: block;
 
-  width: min(52vw, 250px);
-  height: 230px;
+  width: min(100%, 440px);
+  max-height: 360px;
 
   object-fit: contain;
 
-  margin: 18px auto;
+  margin: 20px auto;
+
+  border-radius: 14px;
+
+  filter: drop-shadow(0 8px 12px #462a1220);
 }
 
-.final-fallback {
-  display: none;
+.final-image-fallback {
   color: #95652d;
-  font-size: 25px;
-  margin: 28px auto;
+  font-size: 20px;
+  margin: 25px auto;
 }
 
-.blessing-card h1 {
-  margin-bottom: 14px;
-}
 
 /* FINAL INVITATION MESSAGE */
 
@@ -785,7 +844,6 @@ a {
   font-size: 17px;
   line-height: 1.9;
 
-  white-space: pre-line;
   color: #65452e;
 }
 
@@ -802,15 +860,17 @@ a {
 
 .final-date {
   color: #8b6030;
-  margin-top: 12px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
 .closing-line {
-  margin-top: 18px;
+  margin-top: 17px;
   color: #9a713d;
   font-style: italic;
+  line-height: 1.7;
 }
+
 
 /* ==========================================
    MOBILE RESPONSIVE DESIGN
@@ -897,12 +957,21 @@ a {
     padding: 24px 15px;
   }
 
-  .final-ganesha {
-    height: 190px;
+  .krish-image {
+    width: min(55vw, 170px);
+    height: 130px;
   }
+
+  .final-couple-image {
+    max-height: 280px;
+  }
+
 }
 
-/* REDUCED MOTION ACCESSIBILITY */
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -913,4 +982,5 @@ a {
   .door {
     transition-duration: .01ms;
   }
+
 }
