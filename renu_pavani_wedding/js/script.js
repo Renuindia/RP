@@ -1,7 +1,7 @@
 
 /* ==========================================
    RENU & PAVANI WEDDING INVITATION
-   DOOR OPENING + COUNTDOWN + MUSIC
+   DOOR OPENING + MUSIC + AUTO SLIDESHOW
 ========================================== */
 
 (() => {
@@ -10,9 +10,9 @@
 
 
   /* ======================================
-     WEDDING DATE
+     WEDDING MUHURTAM
      26 NOVEMBER 2026
-     04:40 AM INDIAN STANDARD TIME
+     04:40 AM IST
   ====================================== */
 
   const weddingDate = new Date(
@@ -21,7 +21,7 @@
 
 
   /* ======================================
-     HTML ELEMENTS
+     ELEMENTS
   ====================================== */
 
   const entrance = document.getElementById("entrance");
@@ -34,22 +34,30 @@
 
   const music = document.getElementById("weddingMusic");
 
-
-  const countdownIds = [
-    "days",
-    "hours",
-    "minutes",
-    "seconds"
-  ];
-
-
-  let countdownTimer = null;
-
-  let doorsOpened = false;
+  const slides = Array.from(
+    document.querySelectorAll(".slide")
+  );
 
 
   /* ======================================
-     UPDATE COUNTDOWN
+     SETTINGS
+  ====================================== */
+
+  const SLIDE_INTERVAL = 2000;
+
+  const DOOR_ANIMATION_DELAY = 2600;
+
+  let countdownTimer = null;
+
+  let slideTimer = null;
+
+  let doorsOpened = false;
+
+  let currentSlide = 0;
+
+
+  /* ======================================
+     COUNTDOWN
   ====================================== */
 
   function showCountdown() {
@@ -64,34 +72,23 @@
     };
 
 
-    /* WEDDING DAY REACHED */
-
     if (remaining <= 0) {
 
-      countdownIds.forEach(id => {
+      Object.values(elements).forEach(element => {
 
-        if (elements[id]) {
-          elements[id].textContent = "00";
+        if (element) {
+          element.textContent = "00";
         }
 
       });
 
-      if (scrollHint) {
-
-        scrollHint.textContent =
-          "The wedding day is here! Scroll down to view the invitation.";
-
-      }
-
       if (countdownTimer) {
-        window.clearInterval(countdownTimer);
+        clearInterval(countdownTimer);
       }
 
       return;
     }
 
-
-    /* CALCULATE REMAINING TIME */
 
     const days = Math.floor(
       remaining / 86400000
@@ -110,8 +107,6 @@
     );
 
 
-    /* DISPLAY COUNTDOWN */
-
     elements.days.textContent =
       String(days).padStart(2, "0");
 
@@ -128,7 +123,7 @@
 
 
   /* ======================================
-     START BACKGROUND WEDDING MUSIC
+     START WEDDING MUSIC
   ====================================== */
 
   async function startWeddingMusic() {
@@ -137,29 +132,109 @@
       return;
     }
 
-    music.volume = 0.65;
-
     try {
+
+      music.volume = 0.65;
+
+      music.loop = true;
+
+      music.load();
 
       await music.play();
 
       if (musicNote) {
 
         musicNote.textContent =
-          "♫ Wedding music is playing";
+          "♫ Our wedding celebration music is playing";
 
       }
 
     } catch (error) {
 
+      console.error(
+        "Wedding music playback failed:",
+        error
+      );
+
       if (musicNote) {
 
         musicNote.textContent =
-          "♫ Music could not start. Check assets/wedding-music.mp3";
+          "Music could not play. Please check the audio file format and path.";
 
       }
 
     }
+
+  }
+
+
+  /* ======================================
+     CHANGE PRESENTATION PAGE
+  ====================================== */
+
+  function showSlide(index) {
+
+    if (index < 0 || index >= slides.length) {
+      return;
+    }
+
+    slides.forEach((slide, i) => {
+
+      slide.classList.toggle(
+        "active",
+        i === index
+      );
+
+    });
+
+    currentSlide = index;
+
+  }
+
+
+  /* ======================================
+     AUTOMATIC SLIDESHOW
+     EVERY 2 SECONDS
+  ====================================== */
+
+  function startAutomaticSlideshow() {
+
+    if (slideTimer) {
+      clearInterval(slideTimer);
+    }
+
+    /*
+      Wait for the wooden doors to finish opening.
+    */
+
+    window.setTimeout(() => {
+
+      showSlide(1);
+
+      slideTimer = window.setInterval(() => {
+
+        const nextSlide = currentSlide + 1;
+
+        /*
+          Stop at the final wedding page.
+        */
+
+        if (nextSlide >= slides.length) {
+
+          clearInterval(slideTimer);
+
+          slideTimer = null;
+
+          showSlide(slides.length - 1);
+
+          return;
+        }
+
+        showSlide(nextSlide);
+
+      }, SLIDE_INTERVAL);
+
+    }, DOOR_ANIMATION_DELAY);
 
   }
 
@@ -177,7 +252,7 @@
     doorsOpened = true;
 
 
-    /* START DOOR ANIMATION */
+    /* OPEN BOTH DOORS */
 
     entrance.classList.add("open");
 
@@ -200,25 +275,30 @@
     );
 
 
-    /* START MUSIC AFTER USER CLICK */
+    /* START MUSIC */
 
     startWeddingMusic();
 
 
-    /* UPDATE SCROLL MESSAGE */
+    /* UPDATE MESSAGE */
 
     if (scrollHint) {
 
       scrollHint.textContent =
-        "Doors are open! Scroll down to discover our invitation ↓";
+        "Doors are open! Welcome to our wedding celebration.";
 
     }
+
+
+    /* START AUTOMATIC PAGE TRANSITIONS */
+
+    startAutomaticSlideshow();
 
   }
 
 
   /* ======================================
-     BUTTON CLICK EVENT
+     OPEN USING MAIN BUTTON
   ====================================== */
 
   openButton.addEventListener(
@@ -228,7 +308,7 @@
 
 
   /* ======================================
-     CLICK DIRECTLY ON WOODEN DOORS
+     OPEN BY CLICKING WOODEN DOORS
   ====================================== */
 
   document.querySelectorAll(".door").forEach(door => {
@@ -242,11 +322,12 @@
 
 
   /* ======================================
-     INITIAL COUNTDOWN DISPLAY
-     MUSIC REMAINS OFF UNTIL CLICK
+     INITIALIZATION
   ====================================== */
 
   showCountdown();
+
+  showSlide(0);
 
 
 })();
