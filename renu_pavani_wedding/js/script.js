@@ -1,18 +1,17 @@
 
 /* ==========================================
    RENU & PAVANI WEDDING INVITATION
-   DOOR OPENING + MUSIC + AUTO SLIDESHOW
+   DOOR OPENING + BACKGROUND MUSIC
+   MANUAL SCROLLING
 ========================================== */
 
 (() => {
 
   "use strict";
 
-
   /* ======================================
-     WEDDING MUHURTAM
-     26 NOVEMBER 2026
-     04:40 AM IST
+     WEDDING MUHURTAM - IST
+     26 NOVEMBER 2026, 04:40 AM
   ====================================== */
 
   const weddingDate = new Date(
@@ -21,7 +20,7 @@
 
 
   /* ======================================
-     ELEMENTS
+     HTML ELEMENTS
   ====================================== */
 
   const entrance = document.getElementById("entrance");
@@ -34,26 +33,9 @@
 
   const music = document.getElementById("weddingMusic");
 
-  const slides = Array.from(
-    document.querySelectorAll(".slide")
-  );
-
-
-  /* ======================================
-     SETTINGS
-  ====================================== */
-
-  const SLIDE_INTERVAL = 2000;
-
-  const DOOR_ANIMATION_DELAY = 2600;
-
-  let countdownTimer = null;
-
-  let slideTimer = null;
-
   let doorsOpened = false;
 
-  let currentSlide = 0;
+  let countdownTimer = null;
 
 
   /* ======================================
@@ -71,15 +53,10 @@
       seconds: document.getElementById("seconds")
     };
 
-
     if (remaining <= 0) {
 
       Object.values(elements).forEach(element => {
-
-        if (element) {
-          element.textContent = "00";
-        }
-
+        if (element) element.textContent = "00";
       });
 
       if (countdownTimer) {
@@ -89,10 +66,7 @@
       return;
     }
 
-
-    const days = Math.floor(
-      remaining / 86400000
-    );
+    const days = Math.floor(remaining / 86400000);
 
     const hours = Math.floor(
       (remaining % 86400000) / 3600000
@@ -105,7 +79,6 @@
     const seconds = Math.floor(
       (remaining % 60000) / 1000
     );
-
 
     elements.days.textContent =
       String(days).padStart(2, "0");
@@ -123,118 +96,86 @@
 
 
   /* ======================================
-     START WEDDING MUSIC
+     BACKGROUND MUSIC
   ====================================== */
 
-  async function startWeddingMusic() {
+  function startWeddingMusic() {
 
     if (!music) {
-      return;
-    }
 
-    try {
-
-      music.volume = 0.65;
-
-      music.loop = true;
-
-      music.load();
-
-      await music.play();
+      console.error("Wedding music element not found.");
 
       if (musicNote) {
-
-        musicNote.textContent =
-          "♫ Our wedding celebration music is playing";
-
+        musicNote.textContent = "Wedding music element not found.";
       }
 
-    } catch (error) {
-
-      console.error(
-        "Wedding music playback failed:",
-        error
-      );
-
-      if (musicNote) {
-
-        musicNote.textContent =
-          "Music could not play. Please check the audio file format and path.";
-
-      }
-
-    }
-
-  }
-
-
-  /* ======================================
-     CHANGE PRESENTATION PAGE
-  ====================================== */
-
-  function showSlide(index) {
-
-    if (index < 0 || index >= slides.length) {
       return;
-    }
-
-    slides.forEach((slide, i) => {
-
-      slide.classList.toggle(
-        "active",
-        i === index
-      );
-
-    });
-
-    currentSlide = index;
-
-  }
-
-
-  /* ======================================
-     AUTOMATIC SLIDESHOW
-     EVERY 2 SECONDS
-  ====================================== */
-
-  function startAutomaticSlideshow() {
-
-    if (slideTimer) {
-      clearInterval(slideTimer);
     }
 
     /*
-      Wait for the wooden doors to finish opening.
+      Do not call load() here.
+      Start playback directly from the user's click.
     */
 
-    window.setTimeout(() => {
+    music.volume = 0.75;
+    music.loop = true;
 
-      showSlide(1);
+    const playPromise = music.play();
 
-      slideTimer = window.setInterval(() => {
+    if (playPromise !== undefined) {
 
-        const nextSlide = currentSlide + 1;
+      playPromise.then(() => {
 
-        /*
-          Stop at the final wedding page.
-        */
+        console.log("Wedding music started successfully.");
 
-        if (nextSlide >= slides.length) {
-
-          clearInterval(slideTimer);
-
-          slideTimer = null;
-
-          showSlide(slides.length - 1);
-
-          return;
+        if (musicNote) {
+          musicNote.textContent =
+            "♫ Wedding music is playing in the background";
         }
 
-        showSlide(nextSlide);
+      }).catch(error => {
 
-      }, SLIDE_INTERVAL);
+        console.error("Wedding music playback failed:", error);
 
-    }, DOOR_ANIMATION_DELAY);
+        if (musicNote) {
+          musicNote.textContent =
+            "Music playback failed: " + error.message;
+        }
+
+      });
+
+    }
+
+  }
+
+
+  /* ======================================
+     MUSIC ERROR DIAGNOSTICS
+  ====================================== */
+
+  if (music) {
+
+    music.addEventListener("error", () => {
+
+      const mediaError = music.error;
+
+      console.error(
+        "Audio loading error:",
+        mediaError ? mediaError.code : "Unknown"
+      );
+
+      if (musicNote) {
+        musicNote.textContent =
+          "Unable to load wedding music. Check audio file and format.";
+      }
+
+    });
+
+    music.addEventListener("ended", () => {
+
+      console.log("Wedding music ended.");
+
+    });
 
   }
 
@@ -251,21 +192,31 @@
 
     doorsOpened = true;
 
+    /*
+      Start music immediately within
+      the original user click event.
+    */
 
-    /* OPEN BOTH DOORS */
+    startWeddingMusic();
+
+    /*
+      Open both wooden doors.
+    */
 
     entrance.classList.add("open");
 
-
-    /* UPDATE BUTTON */
+    /*
+      Update button.
+    */
 
     openButton.textContent =
       "The Celebration Awaits";
 
     openButton.disabled = true;
 
-
-    /* START COUNTDOWN */
+    /*
+      Start countdown.
+    */
 
     showCountdown();
 
@@ -274,31 +225,22 @@
       1000
     );
 
-
-    /* START MUSIC */
-
-    startWeddingMusic();
-
-
-    /* UPDATE MESSAGE */
+    /*
+      Update scroll message.
+    */
 
     if (scrollHint) {
 
       scrollHint.textContent =
-        "Doors are open! Welcome to our wedding celebration.";
+        "Doors are open! Scroll down to discover our invitation ↓";
 
     }
-
-
-    /* START AUTOMATIC PAGE TRANSITIONS */
-
-    startAutomaticSlideshow();
 
   }
 
 
   /* ======================================
-     OPEN USING MAIN BUTTON
+     MAIN BUTTON CLICK
   ====================================== */
 
   openButton.addEventListener(
@@ -308,7 +250,7 @@
 
 
   /* ======================================
-     OPEN BY CLICKING WOODEN DOORS
+     CLICK ON WOODEN DOORS
   ====================================== */
 
   document.querySelectorAll(".door").forEach(door => {
@@ -326,8 +268,5 @@
   ====================================== */
 
   showCountdown();
-
-  showSlide(0);
-
 
 })();
