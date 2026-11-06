@@ -1,193 +1,252 @@
+
 /* ==========================================
    RENU & PAVANI WEDDING INVITATION
-   DOOR OPENING + COUNTDOWN
+   DOOR OPENING + COUNTDOWN + MUSIC
 ========================================== */
 
 (() => {
 
-    "use strict";
-
-    /* ======================================
-       WEDDING DATE
-       26 NOVEMBER 2026
-       05:30 AM INDIAN STANDARD TIME
-    ====================================== */
-
-    const weddingDate = new Date(
-        "2026-11-26T05:30:00+05:30"
-    ).getTime();
+  "use strict";
 
 
-    /* ======================================
-       HTML ELEMENTS
-    ====================================== */
+  /* ======================================
+     WEDDING DATE
+     26 NOVEMBER 2026
+     04:40 AM INDIAN STANDARD TIME
+  ====================================== */
 
-    const entrance = document.getElementById("entrance");
-
-    const openButton = document.getElementById("openDoorBtn");
-
-    const scrollHint = document.getElementById("scrollHint");
-
-    const countdownIds = [
-        "days",
-        "hours",
-        "minutes",
-        "seconds"
-    ];
-
-    let countdownTimer = null;
-
-    let doorsOpened = false;
+  const weddingDate = new Date(
+    "2026-11-26T04:40:00+05:30"
+  ).getTime();
 
 
-    /* ======================================
-       UPDATE COUNTDOWN
-    ====================================== */
+  /* ======================================
+     HTML ELEMENTS
+  ====================================== */
 
-    function showCountdown() {
+  const entrance = document.getElementById("entrance");
 
-        const remaining = weddingDate - Date.now();
+  const openButton = document.getElementById("openDoorBtn");
 
-        const elements = {
-            days: document.getElementById("days"),
-            hours: document.getElementById("hours"),
-            minutes: document.getElementById("minutes"),
-            seconds: document.getElementById("seconds")
-        };
+  const scrollHint = document.getElementById("scrollHint");
+
+  const musicNote = document.getElementById("musicNote");
+
+  const music = document.getElementById("weddingMusic");
 
 
-        /* WEDDING DAY REACHED */
+  const countdownIds = [
+    "days",
+    "hours",
+    "minutes",
+    "seconds"
+  ];
 
-        if (remaining <= 0) {
 
-            countdownIds.forEach(id => {
+  let countdownTimer = null;
 
-                if (elements[id]) {
-                    elements[id].textContent = "00";
-                }
+  let doorsOpened = false;
 
-            });
 
-            if (scrollHint) {
+  /* ======================================
+     UPDATE COUNTDOWN
+  ====================================== */
 
-                scrollHint.textContent =
-                    "The wedding day is here! Scroll down for the invitation.";
+  function showCountdown() {
 
-            }
+    const remaining = weddingDate - Date.now();
 
-            if (countdownTimer) {
-                clearInterval(countdownTimer);
-            }
+    const elements = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
 
-            return;
+
+    /* WEDDING DAY REACHED */
+
+    if (remaining <= 0) {
+
+      countdownIds.forEach(id => {
+
+        if (elements[id]) {
+          elements[id].textContent = "00";
         }
 
+      });
 
-        /* CALCULATE REMAINING TIME */
+      if (scrollHint) {
 
-        const days = Math.floor(
-            remaining / 86400000
-        );
+        scrollHint.textContent =
+          "The wedding day is here! Scroll down to view the invitation.";
 
-        const hours = Math.floor(
-            (remaining % 86400000) / 3600000
-        );
+      }
 
-        const minutes = Math.floor(
-            (remaining % 3600000) / 60000
-        );
+      if (countdownTimer) {
+        window.clearInterval(countdownTimer);
+      }
 
-        const seconds = Math.floor(
-            (remaining % 60000) / 1000
-        );
-
-
-        /* DISPLAY COUNTDOWN */
-
-        elements.days.textContent =
-            String(days).padStart(2, "0");
-
-        elements.hours.textContent =
-            String(hours).padStart(2, "0");
-
-        elements.minutes.textContent =
-            String(minutes).padStart(2, "0");
-
-        elements.seconds.textContent =
-            String(seconds).padStart(2, "0");
-
+      return;
     }
 
 
-    /* ======================================
-       OPEN WEDDING DOORS
-    ====================================== */
+    /* CALCULATE REMAINING TIME */
 
-    function openWeddingDoors() {
+    const days = Math.floor(
+      remaining / 86400000
+    );
 
-        if (doorsOpened) {
-            return;
-        }
+    const hours = Math.floor(
+      (remaining % 86400000) / 3600000
+    );
 
-        doorsOpened = true;
+    const minutes = Math.floor(
+      (remaining % 3600000) / 60000
+    );
 
-
-        /* START DOOR ANIMATION */
-
-        entrance.classList.add("open");
-
-
-        /* UPDATE BUTTON */
-
-        openButton.textContent =
-            "The Celebration Awaits";
-
-        openButton.disabled = true;
-
-
-        /* START COUNTDOWN AFTER CLICK */
-
-        showCountdown();
-
-        countdownTimer = window.setInterval(
-            showCountdown,
-            1000
-        );
-
-
-        /* UPDATE SCROLL MESSAGE */
-
-        if (scrollHint) {
-
-            scrollHint.textContent =
-                "Doors are open! Scroll down to discover the invitation ↓";
-
-        }
-
-    }
-
-
-    /* ======================================
-       BUTTON CLICK EVENT
-    ====================================== */
-
-    openButton.addEventListener(
-        "click",
-        openWeddingDoors
+    const seconds = Math.floor(
+      (remaining % 60000) / 1000
     );
 
 
-    /* ======================================
-       CLICK DIRECTLY ON WOODEN DOORS
-    ====================================== */
+    /* DISPLAY COUNTDOWN */
 
-    document.querySelectorAll(".door").forEach(door => {
+    elements.days.textContent =
+      String(days).padStart(2, "0");
 
-        door.addEventListener(
-            "click",
-            openWeddingDoors
-        );
+    elements.hours.textContent =
+      String(hours).padStart(2, "0");
 
-    });
+    elements.minutes.textContent =
+      String(minutes).padStart(2, "0");
+
+    elements.seconds.textContent =
+      String(seconds).padStart(2, "0");
+
+  }
+
+
+  /* ======================================
+     START BACKGROUND WEDDING MUSIC
+  ====================================== */
+
+  async function startWeddingMusic() {
+
+    if (!music) {
+      return;
+    }
+
+    music.volume = 0.65;
+
+    try {
+
+      await music.play();
+
+      if (musicNote) {
+
+        musicNote.textContent =
+          "♫ Wedding music is playing";
+
+      }
+
+    } catch (error) {
+
+      if (musicNote) {
+
+        musicNote.textContent =
+          "♫ Music could not start. Check assets/wedding-music.mp3";
+
+      }
+
+    }
+
+  }
+
+
+  /* ======================================
+     OPEN WEDDING DOORS
+  ====================================== */
+
+  function openWeddingDoors() {
+
+    if (doorsOpened) {
+      return;
+    }
+
+    doorsOpened = true;
+
+
+    /* START DOOR ANIMATION */
+
+    entrance.classList.add("open");
+
+
+    /* UPDATE BUTTON */
+
+    openButton.textContent =
+      "The Celebration Awaits";
+
+    openButton.disabled = true;
+
+
+    /* START COUNTDOWN */
+
+    showCountdown();
+
+    countdownTimer = window.setInterval(
+      showCountdown,
+      1000
+    );
+
+
+    /* START MUSIC AFTER USER CLICK */
+
+    startWeddingMusic();
+
+
+    /* UPDATE SCROLL MESSAGE */
+
+    if (scrollHint) {
+
+      scrollHint.textContent =
+        "Doors are open! Scroll down to discover our invitation ↓";
+
+    }
+
+  }
+
+
+  /* ======================================
+     BUTTON CLICK EVENT
+  ====================================== */
+
+  openButton.addEventListener(
+    "click",
+    openWeddingDoors
+  );
+
+
+  /* ======================================
+     CLICK DIRECTLY ON WOODEN DOORS
+  ====================================== */
+
+  document.querySelectorAll(".door").forEach(door => {
+
+    door.addEventListener(
+      "click",
+      openWeddingDoors
+    );
+
+  });
+
+
+  /* ======================================
+     INITIAL COUNTDOWN DISPLAY
+     MUSIC REMAINS OFF UNTIL CLICK
+  ====================================== */
+
+  showCountdown();
+
 
 })();
